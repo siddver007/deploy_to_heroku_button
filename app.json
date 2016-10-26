@@ -2,6 +2,10 @@
   "name": "Django Excel example",
   "description": "Testing of deploy to heroku button",
   "repository": "https://github.com/siddver007/deploy_to_heroku_button",
+  "env": {
+    "DISABLE_COLLECTSTATIC":{
+    "value":1},
+  },
   "logo": "http://www.onlinebusinessaccounting.co.uk/wp-content/uploads/2015/07/Excel-Logo-Home-Page.png",
   "keywords": ["django", "excel", "testing"]
 }
