@@ -4,3 +4,4 @@ pyexcel==0.2.5
 pyexcel-io==0.2.3
 pyexcel-webio==0.0.7
 texttable==0.8.6
+gunicorn==19.6.0
