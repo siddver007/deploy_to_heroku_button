@@ -14,9 +14,17 @@ def csvProcessView(request):
 		if form.is_valid():
 			start_time = time.time()
 			filehandle = request.FILES['file']
-			csv_list = filehandle.get_array()
-			duplicates = [k for k,v in Counter(map(tuple,csv_list)).items() if v>1]
+			csv_list = []
 
+			filename = filehandle.name
+			if not filename.endswith('.csv'):
+				return HttpResponse('Not a CSV file')
+
+			for line in filehandle:
+				csv_list.append(tuple(line.strip().split(',')))
+			filehandle.close()	
+
+			duplicates = [k for k,v in Counter(csv_list).items() if v>1]
 			duplicate_number = len(duplicates)
 
 			duplicate_rows_string = ''			
